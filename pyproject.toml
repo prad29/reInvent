@@ -1,8 +1,8 @@
 [project]
-name = "open-webui"
-description = "Open WebUI"
+name = "reinvent"
+description = "reInvent - Self-hosted AI assistant"
 authors = [
-    { name = "Timothy Jaeryang Baek", email = "tim@openwebui.com" }
+    { name = "Souveek Pradhan", email = "pradhansouveek@gmail.com" }
 ]
 license = { file = "LICENSE" }
 dependencies = [

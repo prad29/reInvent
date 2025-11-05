@@ -17,6 +17,7 @@
 
 	import { settings, user, shortCodesToEmojis } from '$lib/stores';
 	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL } from '$lib/constants';
+	import { WEBUI_STATIC_URL } from '$lib/constants';
 
 	import Markdown from '$lib/components/chat/Messages/Markdown.svelte';
 	import ProfileImage from '$lib/components/chat/Messages/ProfileImage.svelte';
@@ -186,7 +187,7 @@
 					{:else}
 						<img
 							src={message.reply_to_message.user?.profile_image_url ??
-								`${WEBUI_BASE_URL}/static/favicon.png`}
+								`${WEBUI_STATIC_URL}/static/favicon.png`}
 							alt={message.reply_to_message.user?.name ?? $i18n.t('Unknown User')}
 							class="size-4 ml-0.5 rounded-full object-cover"
 						/>
@@ -220,7 +221,7 @@
 					{:else}
 						<ProfilePreview user={message.user}>
 							<ProfileImage
-								src={message.user?.profile_image_url ?? `${WEBUI_BASE_URL}/static/favicon.png`}
+								src={message.user?.profile_image_url ?? `${WEBUI_STATIC_URL}/static/favicon.png`}
 								className={'size-8 ml-0.5'}
 							/>
 						</ProfilePreview>

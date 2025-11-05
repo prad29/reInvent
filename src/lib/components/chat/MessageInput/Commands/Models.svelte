@@ -6,6 +6,7 @@
 
 	import { models } from '$lib/stores';
 	import { WEBUI_BASE_URL } from '$lib/constants';
+	import { WEBUI_STATIC_URL } from '$lib/constants';
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
 
 	const i18n = getContext('i18n');
@@ -83,7 +84,7 @@
 			>
 				<div class="flex text-black dark:text-gray-100 line-clamp-1">
 					<img
-						src={model?.info?.meta?.profile_image_url ?? `${WEBUI_BASE_URL}/static/favicon.png`}
+						src={model?.info?.meta?.profile_image_url ?? `${WEBUI_STATIC_URL}/static/favicon.png`}
 						alt={model?.name ?? model.id}
 						class="rounded-full size-5 items-center mr-2"
 					/>

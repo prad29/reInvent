@@ -175,7 +175,7 @@
 						on:click={() => {
 							show = false;
 						}}
-						href="https://github.com/open-webui/open-webui/releases"
+						href="https://www.ankercloud.com"
 					>
 						<Map className="size-5" />
 						<div class="flex items-center">{$i18n.t('Releases')}</div>

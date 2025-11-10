@@ -158,12 +158,18 @@
 
 		if (headers) {
 			try {
+				console.log('DEBUG: Original headers string:', headers);
+				console.log('DEBUG: Headers string length:', headers.length);
+				console.log('DEBUG: Has line breaks:', headers.includes('\n'));
 				const _headers = JSON.parse(headers);
 				if (typeof _headers !== 'object' || Array.isArray(_headers)) {
 					throw new Error('Headers must be a valid JSON object');
 				}
 				headers = JSON.stringify(_headers, null, 2);
+				console.log('DEBUG: Successfully parsed headers:', _headers);
 			} catch (error) {
+				console.error('DEBUG: JSON parse error:', error);
+				console.error('DEBUG: Failed headers string:', JSON.stringify(headers));
 				toast.error($i18n.t('Headers must be a valid JSON object'));
 				return;
 			}

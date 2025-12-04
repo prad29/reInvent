@@ -275,8 +275,8 @@
 											<!-- <ProfileImage
 												src={model?.info?.meta?.profile_image_url ??
 													($i18n.language === 'dg-DG'
-														? `/doge.png`
-														: `/favicon.png`)}
+														? `${WEBUI_BASE_URL}/doge.png`
+														: `${WEBUI_BASE_URL}/favicon.png`)}
 												className={'size-5 assistant-message-profile-image'}
 											/> -->
 

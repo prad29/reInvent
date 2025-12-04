@@ -92,6 +92,8 @@
 		"codemirror-lang-hcl": "^0.1.0",
 		"crc-32": "^1.2.2",
 		"dayjs": "^1.11.10",
+		"diff": "^8.0.2",
+		"diff2html": "^3.4.52",
 		"dompurify": "^3.2.6",
 		"eventsource-parser": "^1.1.2",
 		"file-saver": "^2.0.5",

@@ -17,7 +17,8 @@
 		temporaryChatEnabled,
 		selectedFolder,
 		chats,
-		currentChatPage
+		currentChatPage,
+		theme
 	} from '$lib/stores';
 	import { sanitizeResponseContent, extractCurlyBraceWords } from '$lib/utils';
 	import { WEBUI_BASE_URL } from '$lib/constants';
@@ -81,6 +82,18 @@
 				<EyeSlash strokeWidth="2.5" className="size-4" />{$i18n.t('Temporary Chat')}
 			</div>
 		</Tooltip>
+	{/if}
+
+	<!-- Hoppecke logo when theme is active -->
+	{#if $theme === 'hoppecke'}
+		<div class="w-full flex justify-center mb-6" in:fade={{ duration: 200 }}>
+			<img
+				src="/hoppecke-logo.png"
+				alt="Hoppecke"
+				class="h-12 w-auto"
+				draggable="false"
+			/>
+		</div>
 	{/if}
 
 	<div

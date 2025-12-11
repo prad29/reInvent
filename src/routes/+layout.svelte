@@ -69,6 +69,9 @@
 
 	const BREAKPOINT = 768;
 
+	// Reactive favicon based on theme
+	$: faviconHref = $theme === 'hoppecke' ? '/hoppecke-logo.png' : `${WEBUI_STATIC_URL}/static/favicon.png`;
+
 	const setupSocket = async (enableWebsocket) => {
 		const _socket = io(`${WEBUI_BASE_URL}` || undefined, {
 			reconnection: true,
@@ -562,6 +565,66 @@
 
 		theme.set(localStorage.theme);
 
+		// Apply theme function
+		const applyThemeFromStore = (_theme) => {
+			if (!_theme) return;
+
+			let themeToApply = _theme === 'oled-dark' ? 'dark' : _theme === 'her' ? 'light' : _theme === 'hoppecke' ? 'light' : _theme;
+
+			if (_theme === 'system') {
+				themeToApply = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+			}
+
+			// Set data-theme attribute for special themes
+			if (_theme === 'hoppecke') {
+				document.documentElement.setAttribute('data-theme', 'hoppecke');
+
+				// Update favicon for Hoppecke theme
+				const favicon = document.querySelector('link[rel="icon"][type="image/png"]');
+				if (favicon) {
+					favicon.href = '/hoppecke-logo.png';
+				}
+			} else {
+				document.documentElement.removeAttribute('data-theme');
+
+				// Restore default favicon
+				const favicon = document.querySelector('link[rel="icon"][type="image/png"]');
+				if (favicon) {
+					favicon.href = '/static/favicon.png';
+				}
+			}
+
+			// Remove all theme classes first
+			['dark', 'light', 'oled-dark', 'her', 'hoppecke'].forEach((t) => {
+				document.documentElement.classList.remove(t);
+			});
+
+			// Add the theme class
+			themeToApply.split(' ').forEach((t) => {
+				document.documentElement.classList.add(t);
+			});
+
+			// Handle OLED dark mode
+			if (_theme.includes('oled')) {
+				document.documentElement.style.setProperty('--color-gray-800', '#101010');
+				document.documentElement.style.setProperty('--color-gray-850', '#050505');
+				document.documentElement.style.setProperty('--color-gray-900', '#000000');
+				document.documentElement.style.setProperty('--color-gray-950', '#000000');
+				document.documentElement.classList.add('dark');
+			} else if (themeToApply === 'dark') {
+				document.documentElement.style.setProperty('--color-gray-800', '#333');
+				document.documentElement.style.setProperty('--color-gray-850', '#262626');
+				document.documentElement.style.setProperty('--color-gray-900', '#171717');
+				document.documentElement.style.setProperty('--color-gray-950', '#0d0d0d');
+			}
+		};
+
+		// Apply theme on mount
+		applyThemeFromStore(localStorage.theme);
+
+		// Subscribe to theme changes
+		const unsubscribeTheme = theme.subscribe(applyThemeFromStore);
+
 		mobile.set(window.innerWidth < BREAKPOINT);
 
 		const onResize = () => {
@@ -687,13 +750,14 @@
 
 		return () => {
 			window.removeEventListener('resize', onResize);
+			unsubscribeTheme();
 		};
 	});
 </script>
 
 <svelte:head>
 	<title>{$WEBUI_NAME}</title>
-	<link crossorigin="anonymous" rel="icon" href="{WEBUI_STATIC_URL}/static/favicon.png" />
+	<link crossorigin="anonymous" rel="icon" href="{faviconHref}" />
 
 	<meta name="apple-mobile-web-app-title" content={$WEBUI_NAME} />
 	<meta name="description" content={$WEBUI_NAME} />

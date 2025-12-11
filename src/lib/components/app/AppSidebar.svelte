@@ -2,8 +2,13 @@
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
 	import Plus from '$lib/components/icons/Plus.svelte';
 	import { WEBUI_BASE_URL, WEBUI_STATIC_URL } from '$lib/constants';
+	import { theme } from '$lib/stores';
 
 	let selected = '';
+
+	$: isHoppeckeTheme = $theme === 'hoppecke';
+	$: logoSrc = isHoppeckeTheme ? '/hoppecke-logo.png' : '/static/splash.png';
+	$: faviconSrc = isHoppeckeTheme ? '/hoppecke-logo.png' : '/static/favicon.png';
 </script>
 
 <div class="min-w-[4.5rem] bg-gray-50 dark:bg-gray-950 flex gap-2.5 flex-col pt-8">
@@ -26,11 +31,11 @@
 				}}
 			>
 				<img
-					src="{WEBUI_STATIC_URL}/static/splash.png"
-					class="size-11 dark:invert p-0.5"
+					src="{logoSrc}"
+					class="size-11 {isHoppeckeTheme ? '' : 'dark:invert'} p-0.5"
 					alt="logo"
 					draggable="false"
-				/>
+					/>
 			</button>
 		</Tooltip>
 	</div>
@@ -50,7 +55,7 @@
 			}}
 		>
 			<img
-				src="{WEBUI_STATIC_URL}/static/favicon.png"
+				src="{faviconSrc}"
 				class="size-10 {selected === '' ? 'rounded-2xl' : 'rounded-full'}"
 				alt="logo"
 				draggable="false"

@@ -9,16 +9,16 @@ export default {
 		extend: {
 			colors: {
 				primary: {
-					50: '#e6f7f8',
-					100: '#b3e8eb',
-					200: '#80d9de',
-					300: '#4dcad1',
-					400: '#1abbc4',
-					500: '#00b3bd',
-					600: '#009fa8',
-					700: '#008b93',
-					800: '#00777e',
-					900: '#006369'
+					50: 'var(--color-primary-50, #e6f7f8)',
+					100: 'var(--color-primary-100, #b3e8eb)',
+					200: 'var(--color-primary-200, #80d9de)',
+					300: 'var(--color-primary-300, #4dcad1)',
+					400: 'var(--color-primary-400, #1abbc4)',
+					500: 'var(--color-primary-500, #00b3bd)',
+					600: 'var(--color-primary-600, #009fa8)',
+					700: 'var(--color-primary-700, #008b93)',
+					800: 'var(--color-primary-800, #00777e)',
+					900: 'var(--color-primary-900, #006369)'
 				},
 				gray: {
 					50: 'var(--color-gray-50, #f9f9f9)',

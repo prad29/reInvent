@@ -12,7 +12,7 @@
 	import { ldapUserSignIn, getSessionUser, userSignIn, userSignUp } from '$lib/apis/auths';
 
 	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL, WEBUI_STATIC_URL } from '$lib/constants';
-	import { WEBUI_NAME, config, user, socket } from '$lib/stores';
+	import { WEBUI_NAME, config, user, socket, theme } from '$lib/stores';
 
 	import { generateInitialsImage, canvasPixelTest } from '$lib/utils';
 
@@ -35,6 +35,10 @@
 	let confirmPassword = '';
 
 	let ldapUsername = '';
+
+	$: logoSrc = $theme === 'hoppecke'
+		? `${WEBUI_STATIC_URL}/hoppecke-logo.png`
+		: `${WEBUI_STATIC_URL}/static/favicon.png`;
 
 	const setSessionUser = async (sessionUser, redirectPath: string | null = null) => {
 		if (sessionUser) {
@@ -229,7 +233,7 @@
 									<img
 										id="logo"
 										crossorigin="anonymous"
-										src="{WEBUI_STATIC_URL}/static/favicon.png"
+										src="{logoSrc}"
 										class="size-24 rounded-full"
 										alt=""
 									/>
@@ -568,7 +572,7 @@
 						<img
 							id="logo"
 							crossorigin="anonymous"
-							src="{WEBUI_STATIC_URL}/static/favicon.png"
+							src="{logoSrc}"
 							class=" w-6 rounded-full"
 							alt=""
 						/>

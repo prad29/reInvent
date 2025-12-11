@@ -48,6 +48,7 @@ from open_webui.utils.misc import (
 )
 
 from open_webui.utils.auth import get_admin_user, get_verified_user
+from open_webui.utils.usage_tracking import track_usage
 from open_webui.utils.access_control import has_access
 
 
@@ -60,6 +61,69 @@ log.setLevel(SRC_LOG_LEVELS["OPENAI"])
 # Utility functions
 #
 ##########################################
+
+
+async def stream_wrapper_with_usage_tracking(
+    content_iter,
+    user_email: str,
+    model_id: str,
+    session_id: Optional[str] = None
+):
+    """
+    Wrapper for streaming responses that tracks token usage.
+    Extracts usage information from the SSE chunks.
+    """
+    input_tokens = 0
+    output_tokens = 0
+    buffer = b""
+
+    try:
+        async for chunk in content_iter:
+            # Forward the chunk to the client first
+            yield chunk
+
+            # Try to parse SSE data to extract usage (accumulate in case split across chunks)
+            try:
+                buffer += chunk if isinstance(chunk, bytes) else chunk.encode('utf-8')
+                buffer_str = buffer.decode('utf-8', errors='ignore')
+
+                # Process complete lines
+                lines = buffer_str.split('\n')
+                buffer = lines[-1].encode('utf-8')  # Keep incomplete line in buffer
+
+                for line in lines[:-1]:
+                    if line.startswith('data: ') and not line.startswith('data: [DONE]'):
+                        data_str = line[6:].strip()
+                        if data_str:
+                            try:
+                                data = json.loads(data_str)
+                                if "usage" in data:
+                                    usage = data["usage"]
+                                    input_tokens = usage.get("prompt_tokens", 0)
+                                    output_tokens = usage.get("completion_tokens", 0)
+                            except json.JSONDecodeError:
+                                pass
+            except Exception:
+                # Silently continue if we can't parse
+                pass
+
+    except Exception as e:
+        log.error(f"Error in streaming wrapper: {e}")
+        raise
+
+    # Track usage after stream completes
+    if input_tokens > 0 or output_tokens > 0:
+        try:
+            track_usage(
+                user_email=user_email,
+                model=model_id,
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
+                session_id=session_id
+            )
+            log.info(f"Tracked streaming usage: {input_tokens} in, {output_tokens} out")
+        except Exception as e:
+            log.error(f"Error tracking streaming usage: {e}")
 
 
 async def send_get_request(url, key=None, user: UserModel = None):
@@ -946,8 +1010,15 @@ async def generate_chat_completion(
         # Check if response is SSE
         if "text/event-stream" in r.headers.get("Content-Type", ""):
             streaming = True
-            return StreamingResponse(
+            # Wrap the stream to track usage
+            wrapped_stream = stream_wrapper_with_usage_tracking(
                 r.content,
+                user_email=user.email,
+                model_id=form_data.get("model", model_id),
+                session_id=metadata.get("chat_id") if metadata else None
+            )
+            return StreamingResponse(
+                wrapped_stream,
                 status_code=r.status,
                 headers=dict(r.headers),
                 background=BackgroundTask(
@@ -966,6 +1037,20 @@ async def generate_chat_completion(
                     return JSONResponse(status_code=r.status, content=response)
                 else:
                     return PlainTextResponse(status_code=r.status, content=response)
+
+            # Track usage for non-streaming responses
+            if isinstance(response, dict) and "usage" in response:
+                try:
+                    usage_data = response["usage"]
+                    track_usage(
+                        user_email=user.email,
+                        model=payload.get("model", model_id) if isinstance(payload, dict) else model_id,
+                        input_tokens=usage_data.get("prompt_tokens", 0),
+                        output_tokens=usage_data.get("completion_tokens", 0),
+                        session_id=metadata.get("chat_id") if metadata else None
+                    )
+                except Exception as e:
+                    log.error(f"Error tracking usage: {e}")
 
             return response
     except Exception as e:

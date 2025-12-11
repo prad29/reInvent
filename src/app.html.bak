@@ -71,15 +71,6 @@
 				} else if (localStorage.theme === 'her') {
 					document.documentElement.classList.add('her');
 					metaThemeColorTag.setAttribute('content', '#983724');
-			} else if (localStorage.theme === 'hoppecke') {
-				document.documentElement.classList.add('light');
-				document.documentElement.setAttribute('data-theme', 'hoppecke');
-				metaThemeColorTag.setAttribute('content', '#d1e4df');
-				// Update favicon for Hoppecke theme
-				const favicon = document.querySelector('link[rel="icon"][type="image/png"]');
-				if (favicon) {
-					favicon.href = '/hoppecke-logo.png';
-				}
 				} else {
 					document.documentElement.classList.add('dark');
 					metaThemeColorTag.setAttribute('content', '#171717');
@@ -104,11 +95,7 @@
 				logo.id = 'logo';
 				logo.style =
 					'position: absolute; width: auto; height: 6rem; top: 44%; left: 50%; transform: translateX(-50%); display:block;';
-				const isHoppeckeTheme = document.documentElement.hasAttribute('data-theme') &&
-					document.documentElement.getAttribute('data-theme') === 'hoppecke';
-				logo.src = isHoppeckeTheme
-					? '/hoppecke-logo.png'
-					: (isDarkMode ? '/static/splash-dark.png' : '/static/splash.png');
+				logo.src = isDarkMode ? '/static/splash-dark.png' : '/static/splash.png';
 
 				document.addEventListener('DOMContentLoaded', function () {
 					const splash = document.getElementById('splash-screen');

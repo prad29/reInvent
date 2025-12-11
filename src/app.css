@@ -128,6 +128,279 @@ li p {
 	border-color: rgba(0, 0, 0, var(--tw-border-opacity));
 }
 
+/* Hoppecke theme CSS variables */
+[data-theme='hoppecke'] {
+	/* Tailwind primary color scale - Hoppecke green/teal palette */
+	--color-primary-50: #f0f9f6;
+	--color-primary-100: #d1e4df;
+	--color-primary-200: #a1c9bd;
+	--color-primary-300: #71ad9b;
+	--color-primary-400: #44937c;
+	--color-primary-500: #14775a;
+	--color-primary-600: #106149;
+	--color-primary-700: #0c4a38;
+	--color-primary-800: #083426;
+	--color-primary-900: #041d15;
+
+	/* Semantic colors */
+	--color-brand: #14775a;
+	--color-link: #14775a;
+	--color-focus-ring: #14775a;
+
+	/* Component-specific */
+	--color-button-primary-bg: #14775a;
+	--color-button-primary-hover: #44937c;
+	--color-tab-active: #14775a;
+	--color-sidebar-accent: #d1e4df;
+	--color-badge-bg: #d1e4df;
+	--color-header-accent: #14775a;
+
+	/* Smooth transitions for theme switching */
+	transition: all 300ms ease;
+}
+
+/* Hoppecke theme UI accents */
+[data-theme='hoppecke'] {
+	/* Active/selected button states with Hoppecke green */
+	.selected-command-option-button,
+	button.selected,
+	.active {
+		background-color: #d1e4df !important;
+		border-color: #14775a !important;
+	}
+
+	/* Hover states for buttons and interactive elements */
+	button:hover:not(:disabled),
+	.cursor-pointer:hover {
+		border-color: #14775a;
+	}
+
+	/* Focus rings */
+	*:focus-visible {
+		outline-color: #14775a !important;
+		ring-color: #14775a !important;
+	}
+
+	/* Checkboxes when checked */
+	input[type='checkbox']:checked {
+		background-color: #14775a !important;
+		border-color: #14775a !important;
+	}
+
+	/* Radio buttons when checked */
+	input[type='radio']:checked {
+		background-color: #14775a !important;
+		border-color: #14775a !important;
+	}
+
+	/* Links */
+	a {
+		color: #14775a;
+	}
+
+	a:hover {
+		color: #106149;
+	}
+
+	/* Sidebar active indicator */
+	.bg-black.dark\\:bg-white {
+		background-color: #14775a !important;
+	}
+
+	/* Primary buttons */
+	.bg-black:not(.dark *),
+	button.bg-black:not(.dark *) {
+		background-color: #14775a !important;
+	}
+
+	.bg-black:hover:not(.dark *) {
+		background-color: #106149 !important;
+	}
+
+	/* Selected items, active tabs */
+	[class*='bg-gray-'].selected,
+	[class*='bg-gray-'][aria-selected='true'],
+	.tab-active {
+		background-color: #d1e4df !important;
+		color: #14775a !important;
+	}
+
+	/* Accent borders */
+	.border-gray-200,
+	.border-gray-300 {
+		border-color: #a1c9bd !important;
+	}
+
+	/* Sidebar navigation items - New Chat, Search, Notes, Workspace */
+	#sidebar-new-chat-button,
+	#sidebar-search-button,
+	#sidebar-notes-button,
+	#sidebar-workspace-button {
+		color: #14775a !important;
+	}
+
+	#sidebar-new-chat-button svg,
+	#sidebar-search-button svg,
+	#sidebar-notes-button svg,
+	#sidebar-workspace-button svg {
+		stroke: #14775a !important;
+	}
+
+	/* Sidebar navigation hover states */
+	#sidebar-new-chat-button:hover,
+	#sidebar-search-button:hover,
+	#sidebar-notes-button:hover,
+	#sidebar-workspace-button:hover {
+		background-color: #f0f9f6 !important;
+	}
+
+	/* Selected/active chat item in sidebar */
+	.group.w-full[aria-current='page'],
+	.group.w-full.active {
+		background-color: #f0f9f6 !important;
+	}
+
+	.group.w-full[aria-current='page'] button,
+	.group.w-full.active button {
+		background-color: #d1e4df !important;
+	}
+
+	/* Hover state for chat items in sidebar */
+	.group.w-full:hover,
+	.group:hover,
+	a.group:hover,
+	button.group:hover,
+	div.group:hover {
+		background-color: #f0f9f6 !important;
+	}
+
+	/* All hover states for sidebar items */
+	.hover\\:bg-gray-100:hover,
+	.hover\\:bg-gray-200:hover,
+	.hover\\:bg-gray-50:hover,
+	.dark\\:hover\\:bg-gray-850:hover,
+	.dark\\:hover\\:bg-gray-800:hover,
+	.dark\\:hover\\:bg-gray-900:hover {
+		background-color: #f0f9f6 !important;
+	}
+
+	/* Sidebar chat list items hover */
+	#sidebar a:hover,
+	#sidebar button:hover:not(.rounded-full),
+	.sidebar a:hover,
+	.sidebar button:hover:not(.rounded-full) {
+		background-color: #f0f9f6 !important;
+	}
+
+	/* All elements in sidebar with hover classes */
+	*[class*='hover:bg-']:hover {
+		background-color: #f0f9f6 !important;
+	}
+
+	/* Chat item hover - show action buttons with green accent */
+	.group.w-full:hover button {
+		background-color: transparent !important;
+		color: #14775a !important;
+	}
+
+	.group.w-full:hover button:hover {
+		background-color: #d1e4df !important;
+	}
+
+	.group.w-full:hover svg {
+		stroke: #14775a !important;
+	}
+
+	/* User message bubbles - light green background */
+	.rounded-3xl.bg-gray-50:not(.dark *),
+	.rounded-3xl.px-4:not(.dark *) {
+		background-color: #d1e4df !important;
+	}
+
+	/* User message content area */
+	.w-full.bg-gray-50.dark\\:bg-gray-800:not(.dark *) {
+		background-color: #d1e4df !important;
+	}
+
+	/* Send button (the microphone/send circle button) */
+	button[aria-label*='Send'],
+	button[aria-label*='Record'],
+	.rounded-full.bg-black {
+		background-color: #14775a !important;
+	}
+
+	button[aria-label*='Send']:hover,
+	button[aria-label*='Record']:hover,
+	.rounded-full.bg-black:hover {
+		background-color: #106149 !important;
+	}
+
+	/* Search input and textarea focus states */
+	input[type='text']:focus,
+	input[type='search']:focus,
+	textarea:focus {
+		border-color: #14775a !important;
+		outline-color: #14775a !important;
+		box-shadow: 0 0 0 1px #14775a !important;
+	}
+
+	/* All SVG icons in the app (makes them green) */
+	.text-gray-800 svg,
+	.dark\\:text-gray-200 svg {
+		stroke: #14775a !important;
+		color: #14775a !important;
+	}
+
+	/* Model selector and model name */
+	.font-primary,
+	.text-3xl {
+		color: #14775a !important;
+	}
+
+	/* Model dropdown button */
+	button[aria-label*='Model'] svg,
+	.dropdown-toggle svg {
+		stroke: #14775a !important;
+	}
+
+	/* Plus button in message input */
+	button[aria-label*='Add']:not([aria-label*='folder']),
+	button[aria-label*='Attach'] {
+		color: #14775a !important;
+	}
+
+	button[aria-label*='Add'] svg:not([aria-label*='folder']),
+	button[aria-label*='Attach'] svg {
+		stroke: #14775a !important;
+	}
+
+	/* Tools/dice button in message input */
+	button[aria-label*='Tools'],
+	button[aria-label*='tool'] {
+		color: #14775a !important;
+	}
+
+	button[aria-label*='Tools'] svg,
+	button[aria-label*='tool'] svg {
+		stroke: #14775a !important;
+	}
+
+	/* Suggested prompts */
+	.cursor-pointer {
+		color: #14775a !important;
+	}
+
+	.cursor-pointer:hover {
+		background-color: #f0f9f6 !important;
+		border-color: #14775a !important;
+	}
+
+	/* Suggested section header */
+	button:has(svg) {
+		color: #14775a !important;
+	}
+}
+
 ::-webkit-scrollbar {
 	height: 0.8rem;
 	width: 0.8rem;

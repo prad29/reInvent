@@ -161,6 +161,68 @@ li p {
 
 /* Hoppecke theme UI accents */
 [data-theme='hoppecke'] {
+	/* Base text colors */
+	color: #44937c;
+
+	/* Body and general text */
+	body {
+		color: #44937c !important;
+	}
+	
+	/* Paragraphs and spans */
+	p:not(.dark *), 
+	span:not(.dark *), 
+	div:not(.dark *) {
+		color: #44937c;
+	}
+	
+	/* Headings */
+	h1:not(.dark *), 
+	h2:not(.dark *), 
+	h3:not(.dark *), 
+	h4:not(.dark *), 
+	h5:not(.dark *), 
+	h6:not(.dark *) {
+		color: #0c4a38 !important;
+	}
+	
+	/* Text utilities - override Tailwind defaults */
+	.text-gray-900:not(.dark *),
+	.text-gray-800:not(.dark *),
+	.text-gray-700:not(.dark *),
+	.text-black:not(.dark *) {
+		color: #44937c !important;
+	}
+	
+	.text-gray-600:not(.dark *),
+	.text-gray-500:not(.dark *) {
+		color: #106149 !important;
+	}
+	
+	.text-gray-400:not(.dark *),
+	.text-gray-300:not(.dark *) {
+		color: #44937c !important;
+	}
+	
+	/* Message text in chat */
+	.prose p:not(.dark *),
+	.markdown-prose p:not(.dark *),
+	.input-prose p:not(.dark *) {
+		color: #44937c !important;
+	}
+	
+	/* Code text */
+	code:not(.dark *), 
+	pre:not(.dark *) {
+		color: #0c4a38 !important;
+	}
+	
+	/* Labels and small text */
+	label:not(.dark *), 
+	small:not(.dark *) {
+		color: #106149 !important;
+	}
+
 	/* Active/selected button states with Hoppecke green */
 	.selected-command-option-button,
 	button.selected,
@@ -398,6 +460,48 @@ li p {
 	/* Suggested section header */
 	button:has(svg) {
 		color: #14775a !important;
+	}
+}
+
+/* Dark mode text colors for Hoppecke theme */
+[data-theme='hoppecke'].dark {
+	color: #d1e4df;
+
+	body {
+		color: #d1e4df !important;
+	}
+	
+	p, span, div {
+		color: #d1e4df;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		color: #f0f9f6 !important;
+	}
+	
+	.dark\\:text-gray-200,
+	.dark\\:text-gray-300,
+	.dark\\:text-white {
+		color: #d1e4df !important;
+	}
+	
+	.dark\\:text-gray-400,
+	.dark\\:text-gray-500 {
+		color: #a1c9bd !important;
+	}
+	
+	.prose p,
+	.markdown-prose p,
+	.input-prose p {
+		color: #d1e4df !important;
+	}
+	
+	code, pre {
+		color: #f0f9f6 !important;
+	}
+	
+	label, small {
+		color: #a1c9bd !important;
 	}
 }
 

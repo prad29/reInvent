@@ -64,7 +64,7 @@
 
 	let group_ids = [];
 
-	$: if (models && query !== undefined && selectedTag !== undefined && viewOption !== undefined) {
+	$: if (models && models.length && query !== undefined && selectedTag !== undefined && viewOption !== undefined) {
 		setFilteredModels();
 	}
 
@@ -186,7 +186,7 @@
 	};
 
 	const setTags = () => {
-		if (models) {
+		if (models && models.length) {
 			tags = models
 				.filter((model) => !(model?.meta?.hidden ?? false))
 				.flatMap((model) => model?.meta?.tags ?? [])

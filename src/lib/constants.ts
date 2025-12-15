@@ -19,6 +19,8 @@ export const RETRIEVAL_API_BASE_URL = `${WEBUI_BASE_URL}/api/v1/retrieval`;
 export const WEBUI_VERSION = APP_VERSION; //DEFINED IN vite.config.ts
 export const WEBUI_BUILD_HASH = APP_BUILD_HASH; //DEFINED IN vite.config.ts
 export const REQUIRED_OLLAMA_VERSION = '0.1.16';
+export const IS_BRANDED_THEME = (_theme: string) => ['hoppecke', 'intilion'].includes(_theme);
+export const BRANDED_THEMES = ['hoppecke', 'intilion'];
 
 export const SUPPORTED_FILE_TYPE = [
 	'application/epub+zip',

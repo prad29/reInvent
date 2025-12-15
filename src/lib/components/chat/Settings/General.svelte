@@ -5,6 +5,7 @@
 	const dispatch = createEventDispatcher();
 
 	import { config, models, settings, theme, user } from '$lib/stores';
+	import { IS_BRANDED_THEME, BRANDED_THEMES } from '$lib/constants'
 
 	const i18n = getContext('i18n');
 
@@ -14,7 +15,7 @@
 	export let getModels: Function;
 
 	// General
-	let themes = ['dark', 'light', 'oled-dark', 'hoppecke'];
+	let themes = ['dark', 'light', 'oled-dark', ...BRANDED_THEMES];
 	let selectedTheme = 'system';
 
 	let languages: Awaited<ReturnType<typeof getLanguages>> = [];
@@ -120,17 +121,28 @@
 	});
 
 	const applyTheme = (_theme: string) => {
-		let themeToApply = _theme === 'oled-dark' ? 'dark' : _theme === 'her' ? 'light' : _theme === 'hoppecke' ? 'light' : _theme;
+		let themeToApply =
+			_theme === 'oled-dark'
+				? 'dark' : 
+				['her', ...BRANDED_THEMES].includes(_theme) ? 'light'
+						: _theme;
 
 		if (_theme === 'system') {
 			themeToApply = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 		}
 
-		// Set data-theme attribute for Hoppecke theme
-		if (_theme === 'hoppecke') {
-			document.documentElement.setAttribute('data-theme', 'hoppecke');
+		// Set data-theme attribute for branded themes
+		if (IS_BRANDED_THEME(_theme)) {
+			document.documentElement.setAttribute('data-theme', _theme);
 		} else {
 			document.documentElement.removeAttribute('data-theme');
+		}
+
+		// Set data-mode attribute for light/dark styling
+		if (themeToApply === 'dark') {
+			document.documentElement.setAttribute('data-mode', 'dark');
+		} else {
+			document.documentElement.setAttribute('data-mode', 'light');
 		}
 
 		if (themeToApply === 'dark' && !_theme.includes('oled')) {
@@ -170,7 +182,9 @@
 								? '#983724'
 								: _theme === 'hoppecke'
 									? '#d1e4df'
-									: '#ffffff'
+									: _theme === 'intilion'
+										? '#fbe1d3'
+										: '#ffffff'
 				);
 			}
 		}
@@ -220,7 +234,8 @@
 						<option value="oled-dark">🌃 {$i18n.t('OLED Dark')}</option>
 						<option value="light">☀️ {$i18n.t('Light')}</option>
 						<option value="her">🌷 Her</option>
-					    <option value="hoppecke">🔋 Hoppecke</option>
+						<option value="hoppecke">🔋 Hoppecke</option>
+						<option value="intilion">🟠 Intilion</option>
 						<!-- <option value="rose-pine dark">🪻 {$i18n.t('Rosé Pine')}</option>
 						<option value="rose-pine-dawn light">🌷 {$i18n.t('Rosé Pine Dawn')}</option> -->
 					</select>

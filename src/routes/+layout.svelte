@@ -39,7 +39,7 @@
 
 	import 'tippy.js/dist/tippy.css';
 
-	import { WEBUI_BASE_URL, WEBUI_HOSTNAME, WEBUI_STATIC_URL } from '$lib/constants';
+	import { WEBUI_BASE_URL, WEBUI_HOSTNAME, WEBUI_STATIC_URL, IS_BRANDED_THEME, BRANDED_THEMES } from '$lib/constants';
 	import i18n, { initI18n, getLanguages, changeLanguage } from '$lib/i18n';
 	import { bestMatchingLanguage } from '$lib/utils';
 	import { getAllTags, getChatList } from '$lib/apis/chats';
@@ -69,8 +69,8 @@
 
 	const BREAKPOINT = 768;
 
-	// Reactive favicon based on theme
-	$: faviconHref = $theme === 'hoppecke' ? '/hoppecke-logo.png' : `${WEBUI_STATIC_URL}/static/favicon.png`;
+		// Reactive favicon based on theme
+	$: faviconHref = IS_BRANDED_THEME($theme) ? `${WEBUI_STATIC_URL}/${$theme}-logo.png` : `${WEBUI_STATIC_URL}/static/favicon.png`;
 
 	const setupSocket = async (enableWebsocket) => {
 		const _socket = io(`${WEBUI_BASE_URL}` || undefined, {
@@ -569,20 +569,25 @@
 		const applyThemeFromStore = (_theme) => {
 			if (!_theme) return;
 
-			let themeToApply = _theme === 'oled-dark' ? 'dark' : _theme === 'her' ? 'light' : _theme === 'hoppecke' ? 'light' : _theme;
+			let themeToApply =
+				_theme === 'oled-dark'
+					? 'dark'
+					: ['her', ...BRANDED_THEMES].includes(_theme)
+							? 'light'
+							: _theme;
 
 			if (_theme === 'system') {
 				themeToApply = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 			}
 
 			// Set data-theme attribute for special themes
-			if (_theme === 'hoppecke') {
-				document.documentElement.setAttribute('data-theme', 'hoppecke');
+			if (IS_BRANDED_THEME(_theme)) {
+				document.documentElement.setAttribute('data-theme', _theme);
 
-				// Update favicon for Hoppecke theme
+				// Update favicon for branded themes
 				const favicon = document.querySelector('link[rel="icon"][type="image/png"]');
 				if (favicon) {
-					favicon.href = '/hoppecke-logo.png';
+					favicon.href = `/${_theme}-logo.png`;
 				}
 			} else {
 				document.documentElement.removeAttribute('data-theme');
@@ -594,8 +599,15 @@
 				}
 			}
 
+			// Track current color mode for CSS variables
+			if (themeToApply === 'dark') {
+				document.documentElement.setAttribute('data-mode', 'dark');
+			} else {
+				document.documentElement.setAttribute('data-mode', 'light');
+			}
+
 			// Remove all theme classes first
-			['dark', 'light', 'oled-dark', 'her', 'hoppecke'].forEach((t) => {
+			['dark', 'light', 'oled-dark', 'her', ...BRANDED_THEMES].forEach((t) => {
 				document.documentElement.classList.remove(t);
 			});
 

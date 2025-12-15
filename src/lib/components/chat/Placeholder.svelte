@@ -21,8 +21,7 @@
 		theme
 	} from '$lib/stores';
 	import { sanitizeResponseContent, extractCurlyBraceWords } from '$lib/utils';
-	import { WEBUI_BASE_URL } from '$lib/constants';
-	import { WEBUI_STATIC_URL } from '$lib/constants';
+	import { WEBUI_BASE_URL, WEBUI_STATIC_URL, IS_BRANDED_THEME } from '$lib/constants';
 
 	import Suggestions from './Suggestions.svelte';
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
@@ -84,17 +83,18 @@
 		</Tooltip>
 	{/if}
 
-	<!-- Hoppecke logo when theme is active -->
-	{#if $theme === 'hoppecke'}
+	<!-- Brand logo when theme is active -->
+	{#if IS_BRANDED_THEME($theme)}
 		<div class="w-full flex justify-center mb-6" in:fade={{ duration: 200 }}>
 			<img
-				src="/hoppecke-logo.png"
-				alt="Hoppecke"
+				src={`${$theme}-logo.png`}
+				alt={`${$theme.charAt(0).toUpperCase()}${$theme.slice(1)}`}
 				class="h-12 w-auto"
 				draggable="false"
 			/>
 		</div>
 	{/if}
+
 
 	<div
 		class="w-full text-3xl text-gray-800 dark:text-gray-100 text-center flex items-center gap-4 font-primary"

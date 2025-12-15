@@ -42,8 +42,7 @@
 		importChat
 	} from '$lib/apis/chats';
 	import { createNewFolder, getFolders, updateFolderParentIdById } from '$lib/apis/folders';
-	import { WEBUI_BASE_URL } from '$lib/constants';
-	import { WEBUI_STATIC_URL } from '$lib/constants';
+	import { WEBUI_BASE_URL, WEBUI_STATIC_URL, BRANDED_THEMES, IS_BRANDED_THEME } from '$lib/constants';
 
 	import ArchivedChatsModal from './ArchivedChatsModal.svelte';
 	import UserMenu from './Sidebar/UserMenu.svelte';
@@ -69,7 +68,8 @@
 	const BREAKPOINT = 768;
 
 	// Reactive logo based on theme
-	$: logoSrc = $theme === 'hoppecke' ? '/hoppecke-logo.png' : `${WEBUI_STATIC_URL}/static/favicon.png`;
+		$: logoSrc = IS_BRANDED_THEME($theme) ? `/${$theme}-logo.png` : `${WEBUI_STATIC_URL}/static/favicon.png`;
+					
 
 	let scrollTop = 0;
 

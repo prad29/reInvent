@@ -128,184 +128,335 @@ li p {
 	border-color: rgba(0, 0, 0, var(--tw-border-opacity));
 }
 
-/* Hoppecke theme CSS variables */
-[data-theme='hoppecke'] {
-	/* Tailwind primary color scale - Hoppecke green/teal palette */
-	--color-primary-50: #f0f9f6;
-	--color-primary-100: #d1e4df;
-	--color-primary-200: #a1c9bd;
-	--color-primary-300: #71ad9b;
-	--color-primary-400: #44937c;
-	--color-primary-500: #14775a;
-	--color-primary-600: #106149;
-	--color-primary-700: #0c4a38;
-	--color-primary-800: #083426;
-	--color-primary-900: #041d15;
+/* --------------------------------------------------------------------------
+   Hoppecke Theme (Default - Green)
+   -------------------------------------------------------------------------- */
+:root,
+:root[data-theme='hoppecke'] {
+	--color-on-brand: #ffffff;
+	/* Primary palette */
+	--color-primary: #14775a;
+	--color-primary-hover: #44937c;
+	--color-primary-light: #71ad9b;
+	--color-primary-lighter: #a1c9bd;
+	--color-primary-lightest: #d1e4df;
 
 	/* Semantic colors */
-	--color-brand: #14775a;
-	--color-link: #14775a;
-	--color-focus-ring: #14775a;
+	--color-brand: var(--color-primary);
+	--color-link: var(--color-primary);
+	--color-focus-ring: var(--color-primary);
 
 	/* Component-specific */
-	--color-button-primary-bg: #14775a;
-	--color-button-primary-hover: #44937c;
-	--color-tab-active: #14775a;
-	--color-sidebar-accent: #d1e4df;
-	--color-badge-bg: #d1e4df;
-	--color-header-accent: #14775a;
+	--color-button-primary-bg: var(--color-primary);
+	--color-button-primary-hover: var(--color-primary-hover);
+	--color-tab-active: var(--color-primary);
+	--color-sidebar-accent: var(--color-primary-lightest);
+	--color-badge-bg: var(--color-primary-lightest);
+	--color-header-accent: var(--color-primary);
 
-	/* Smooth transitions for theme switching */
+	/* UI element brand colors (light mode defaults) */
+	--color-primary-surface: var(--color-primary-lightest);
+	--color-primary-surface-hover: var(--color-primary-lighter);
+	--color-border-brand: var(--color-primary);
+	--color-border-brand-subtle: var(--color-primary-lighter);
+}
+
+/* --------------------------------------------------------------------------
+   Intilion Theme (Orange)
+   -------------------------------------------------------------------------- */
+:root[data-theme='intilion'] {
+	--color-on-brand: #ffffff;
+	/* Primary palette */
+	--color-primary: #ec6622;
+	--color-primary-hover: #f0854e;
+	--color-primary-light: #f3a47a;
+	--color-primary-lighter: #f7c3a7;
+	--color-primary-lightest: #fbe1d3;
+
+	/* Semantic colors inherit from primary */
+	--color-brand: var(--color-primary);
+	--color-link: var(--color-primary);
+	--color-focus-ring: var(--color-primary);
+
+	/* Component-specific inherit from primary */
+	--color-button-primary-bg: var(--color-primary);
+	--color-button-primary-hover: var(--color-primary-hover);
+	--color-badge-bg: var(--color-primary-lightest);
+	--color-tab-active: var(--color-primary);
+	--color-sidebar-accent: var(--color-primary-lightest);
+	--color-header-accent: var(--color-primary);
+
+	/* UI element brand colors (light mode defaults) */
+	--color-primary-surface: var(--color-primary-lightest);
+	--color-primary-surface-hover: var(--color-primary-lighter);
+	--color-border-brand: var(--color-primary);
+	--color-border-brand-subtle: var(--color-primary-lighter);
+}
+
+/* --------------------------------------------------------------------------
+   Light / Dark Mode surfaces (used when data-mode is set)
+   -------------------------------------------------------------------------- */
+:root,
+:root[data-mode='light'] {
+	--color-bg: #ffffff;
+	--color-bg-secondary: #f9fafb;
+	--color-bg-tertiary: #f3f4f6;
+	--color-bg-hover: #f3f4f6;
+	--color-bg-active: #e5e7eb;
+	--color-text: #0e0e10;
+	--color-text-secondary: #6b7280;
+	--color-text-muted: #9ca3af;
+	--color-text-inverted: #ffffff;
+	--color-border: #e5e7eb;
+	--color-border-light: #f3f4f6;
+	--color-border-dark: #d1d5db;
+	--color-surface: #ffffff;
+	--color-surface-raised: #ffffff;
+	--color-surface-overlay: rgba(0, 0, 0, 0.5);
+	--color-input-bg: #ffffff;
+	--color-input-border: #d1d5db;
+	--color-input-focus-border: var(--color-primary);
+	--color-sidebar-bg: #f9fafb;
+	--color-sidebar-hover: #f3f4f6;
+	--color-sidebar-active-bg: var(--color-primary-lightest);
+	--color-sidebar-text: #374151;
+	--color-header-bg: #ffffff;
+	--color-header-border: #e5e7eb;
+	--color-chat-user-bg: var(--color-primary-lightest);
+	--color-chat-assistant-bg: #f3f4f6;
+	--color-chat-area-bg: #f8faf9;
+	--color-scrollbar-track: #f3f4f6;
+	--color-scrollbar-thumb: #d1d5db;
+	--color-scrollbar-thumb-hover: #9ca3af;
+	--color-progress-bg: #e5e7eb;
+	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-mode='dark'] {
+	--color-bg: #0f0f0f;
+	--color-bg-secondary: #1a1a1a;
+	--color-bg-tertiary: #2d2d2d;
+	--color-bg-hover: #2d2d2d;
+	--color-bg-active: #404040;
+	--color-text: #f3f4f6;
+	--color-text-secondary: #9ca3af;
+	--color-text-muted: #6b7280;
+	--color-text-inverted: #0e0e10;
+	--color-border: #333333;
+	--color-border-light: #2d2d2d;
+	--color-border-dark: #404040;
+	--color-surface: #1a1a1a;
+	--color-surface-raised: #2d2d2d;
+	--color-surface-overlay: rgba(0, 0, 0, 0.7);
+	--color-input-bg: #1a1a1a;
+	--color-input-border: #404040;
+	--color-input-focus-border: var(--color-primary);
+	--color-sidebar-bg: #1a1a1a;
+	--color-sidebar-hover: #2d2d2d;
+	--color-sidebar-active-bg: #2d2d2d;
+	--color-sidebar-text: #d1d5db;
+	--color-header-bg: #1a1a1a;
+	--color-header-border: #333333;
+	--color-chat-user-bg: #2d2d2d;
+	--color-chat-assistant-bg: #1a1a1a;
+	--color-chat-area-bg: #121715;
+	--color-scrollbar-track: #1a1a1a;
+	--color-scrollbar-thumb: #404040;
+	--color-scrollbar-thumb-hover: #6b7280;
+	--color-progress-bg: #404040;
+	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* Brand variables used by shared accent styles */
+[data-theme='hoppecke'] {
+	--color-on-brand: #ffffff;
+	--brand-color: #14775a;
+	--brand-color-strong: #106149;
+	--brand-color-heading: #0c4a38;
+	--brand-color-text: #44937c;
+	--brand-color-muted: #a1c9bd;
+	--brand-bg: #d1e4df;
+	--brand-bg-strong: #f0f9f6;
+	--brand-border: #a1c9bd;
+	--brand-surface: #d1e4df;
+	--brand-on-dark: #d1e4df;
+	--brand-on-dark-heading: #f0f9f6;
+	--brand-on-dark-muted: #a1c9bd;
+	--brand-chat-area: #e7f1ed;
+
 	transition: all 300ms ease;
 }
 
-/* Hoppecke theme UI accents */
-[data-theme='hoppecke'] {
+[data-theme='intilion'] {
+	--color-on-brand: #ffffff;
+	--brand-color: #ec6622;
+	--brand-color-strong: #c4501c;
+	--brand-color-heading: #9e3a13;
+	--brand-color-text: #f0854e;
+	--brand-color-muted: #f3a47a;
+	--brand-bg: #fbe1d3;
+	--brand-bg-strong: #fef0e8;
+	--brand-border: #f7c3a7;
+	--brand-surface: #fbe1d3;
+	--brand-on-dark: #f7c3a7;
+	--brand-on-dark-heading: #fbe1d3;
+	--brand-on-dark-muted: #f3a47a;
+	--brand-chat-area: #fef5f0;
+
+	transition: all 300ms ease;
+}
+
+/* Shared brand UI accents */
+[data-theme='hoppecke'],
+[data-theme='intilion'] {
 	/* Base text colors */
-	color: #44937c;
+	color: var(--brand-color-text);
 
 	/* Body and general text */
 	body {
-		color: #44937c !important;
+		color: var(--brand-color-text) !important;
 	}
-	
+
 	/* Paragraphs and spans */
-	p:not(.dark *), 
-	span:not(.dark *), 
+	p:not(.dark *),
+	span:not(.dark *),
 	div:not(.dark *) {
-		color: #44937c;
+		color: var(--brand-color-text);
 	}
-	
+
 	/* Headings */
-	h1:not(.dark *), 
-	h2:not(.dark *), 
-	h3:not(.dark *), 
-	h4:not(.dark *), 
-	h5:not(.dark *), 
+	h1:not(.dark *),
+	h2:not(.dark *),
+	h3:not(.dark *),
+	h4:not(.dark *),
+	h5:not(.dark *),
 	h6:not(.dark *) {
-		color: #0c4a38 !important;
+		color: var(--brand-color-heading) !important;
 	}
-	
+
 	/* Text utilities - override Tailwind defaults */
 	.text-gray-900:not(.dark *),
 	.text-gray-800:not(.dark *),
 	.text-gray-700:not(.dark *),
 	.text-black:not(.dark *) {
-		color: #44937c !important;
+		color: var(--brand-color-text) !important;
 	}
-	
+
 	.text-gray-600:not(.dark *),
 	.text-gray-500:not(.dark *) {
-		color: #106149 !important;
+		color: var(--brand-color-strong) !important;
 	}
-	
+
 	.text-gray-400:not(.dark *),
 	.text-gray-300:not(.dark *) {
-		color: #44937c !important;
+		color: var(--brand-color-text) !important;
 	}
-	
+
 	/* Message text in chat */
 	.prose p:not(.dark *),
 	.markdown-prose p:not(.dark *),
 	.input-prose p:not(.dark *) {
-		color: #44937c !important;
-	}
-	
-	/* Code text */
-	code:not(.dark *), 
-	pre:not(.dark *) {
-		color: #0c4a38 !important;
-	}
-	
-	/* Labels and small text */
-	label:not(.dark *), 
-	small:not(.dark *) {
-		color: #106149 !important;
+		color: var(--brand-color-text) !important;
 	}
 
-	/* Active/selected button states with Hoppecke green */
+	/* Code text */
+	code:not(.dark *),
+	pre:not(.dark *) {
+		color: var(--brand-color-heading) !important;
+	}
+
+	/* Labels and small text */
+	label:not(.dark *),
+	small:not(.dark *) {
+		color: var(--brand-color-strong) !important;
+	}
+
+	/* Active/selected button states */
 	.selected-command-option-button,
 	button.selected,
 	.active {
-		background-color: #d1e4df !important;
-		border-color: #14775a !important;
+		background-color: var(--brand-bg) !important;
+		border-color: var(--brand-color) !important;
 	}
 
 	/* Hover states for buttons and interactive elements */
 	button:hover:not(:disabled),
 	.cursor-pointer:hover {
-		border-color: #14775a;
+		border-color: var(--brand-color);
 	}
 
 	/* Focus rings */
 	*:focus-visible {
-		outline-color: #14775a !important;
-		ring-color: #14775a !important;
+		outline-color: var(--brand-color) !important;
 	}
 
 	/* Checkboxes when checked */
 	input[type='checkbox']:checked {
-		background-color: #14775a !important;
-		border-color: #14775a !important;
+		background-color: var(--brand-color) !important;
+		border-color: var(--brand-color) !important;
 	}
 
 	/* Radio buttons when checked */
 	input[type='radio']:checked {
-		background-color: #14775a !important;
-		border-color: #14775a !important;
+		background-color: var(--brand-color) !important;
+		border-color: var(--brand-color) !important;
 	}
 
 	/* Links */
 	a {
-		color: #14775a;
+		color: var(--brand-color);
 	}
 
 	a:hover {
-		color: #106149;
+		color: var(--brand-color-strong);
 	}
 
 	/* Sidebar active indicator */
 	.bg-black.dark\\:bg-white {
-		background-color: #14775a !important;
+		background-color: var(--brand-color) !important;
 	}
 
 	/* Primary buttons */
 	.bg-black:not(.dark *),
 	button.bg-black:not(.dark *) {
-		background-color: #14775a !important;
+		background-color: var(--brand-color) !important;
 	}
 
 	.bg-black:hover:not(.dark *) {
-		background-color: #106149 !important;
+		background-color: var(--brand-color-strong) !important;
 	}
 
 	/* Selected items, active tabs */
 	[class*='bg-gray-'].selected,
 	[class*='bg-gray-'][aria-selected='true'],
 	.tab-active {
-		background-color: #d1e4df !important;
-		color: #14775a !important;
+		background-color: var(--brand-bg) !important;
+		color: var(--brand-color) !important;
 	}
 
 	/* Accent borders */
 	.border-gray-200,
 	.border-gray-300 {
-		border-color: #a1c9bd !important;
+		border-color: var(--brand-border) !important;
 	}
 
-	/* Sidebar navigation items - New Chat, Search, Notes, Workspace */
+	/* Sidebar navigation items */
 	#sidebar-new-chat-button,
 	#sidebar-search-button,
 	#sidebar-notes-button,
 	#sidebar-workspace-button {
-		color: #14775a !important;
+		color: var(--brand-color) !important;
 	}
 
 	#sidebar-new-chat-button svg,
 	#sidebar-search-button svg,
 	#sidebar-notes-button svg,
 	#sidebar-workspace-button svg {
-		stroke: #14775a !important;
+		stroke: var(--brand-color) !important;
 	}
 
 	/* Sidebar navigation hover states */
@@ -313,18 +464,18 @@ li p {
 	#sidebar-search-button:hover,
 	#sidebar-notes-button:hover,
 	#sidebar-workspace-button:hover {
-		background-color: #f0f9f6 !important;
+		background-color: var(--brand-bg-strong) !important;
 	}
 
 	/* Selected/active chat item in sidebar */
 	.group.w-full[aria-current='page'],
 	.group.w-full.active {
-		background-color: #f0f9f6 !important;
+		background-color: var(--brand-bg-strong) !important;
 	}
 
 	.group.w-full[aria-current='page'] button,
 	.group.w-full.active button {
-		background-color: #d1e4df !important;
+		background-color: var(--brand-bg) !important;
 	}
 
 	/* Hover state for chat items in sidebar */
@@ -333,7 +484,7 @@ li p {
 	a.group:hover,
 	button.group:hover,
 	div.group:hover {
-		background-color: #f0f9f6 !important;
+		background-color: var(--brand-bg-strong) !important;
 	}
 
 	/* All hover states for sidebar items */
@@ -343,7 +494,7 @@ li p {
 	.dark\\:hover\\:bg-gray-850:hover,
 	.dark\\:hover\\:bg-gray-800:hover,
 	.dark\\:hover\\:bg-gray-900:hover {
-		background-color: #f0f9f6 !important;
+		background-color: var(--brand-bg-strong) !important;
 	}
 
 	/* Sidebar chat list items hover */
@@ -351,158 +502,284 @@ li p {
 	#sidebar button:hover:not(.rounded-full),
 	.sidebar a:hover,
 	.sidebar button:hover:not(.rounded-full) {
-		background-color: #f0f9f6 !important;
+		background-color: var(--brand-bg-strong) !important;
 	}
 
 	/* All elements in sidebar with hover classes */
 	*[class*='hover:bg-']:hover {
-		background-color: #f0f9f6 !important;
+		background-color: var(--brand-bg-strong) !important;
 	}
 
-	/* Chat item hover - show action buttons with green accent */
+	/* Chat item hover - show action buttons with brand accent */
 	.group.w-full:hover button {
 		background-color: transparent !important;
-		color: #14775a !important;
+		color: var(--brand-color) !important;
 	}
 
 	.group.w-full:hover button:hover {
-		background-color: #d1e4df !important;
+		background-color: var(--brand-bg) !important;
 	}
 
 	.group.w-full:hover svg {
-		stroke: #14775a !important;
+		stroke: var(--brand-color) !important;
 	}
 
-	/* User message bubbles - light green background */
+	/* User message bubbles */
 	.rounded-3xl.bg-gray-50:not(.dark *),
 	.rounded-3xl.px-4:not(.dark *) {
-		background-color: #d1e4df !important;
+		background-color: var(--brand-bg) !important;
 	}
 
 	/* User message content area */
 	.w-full.bg-gray-50.dark\\:bg-gray-800:not(.dark *) {
-		background-color: #d1e4df !important;
+		background-color: var(--brand-bg) !important;
 	}
 
 	/* Send button (the microphone/send circle button) */
 	button[aria-label*='Send'],
 	button[aria-label*='Record'],
 	.rounded-full.bg-black {
-		background-color: #14775a !important;
+		background-color: var(--brand-color) !important;
 	}
 
 	button[aria-label*='Send']:hover,
 	button[aria-label*='Record']:hover,
 	.rounded-full.bg-black:hover {
-		background-color: #106149 !important;
+		background-color: var(--brand-color-strong) !important;
+	}
+
+	button[aria-label*='Send'] svg,
+	button[aria-label*='Record'] svg {
+		stroke: var(--brand-color) !important;
+		color: var(--brand-color) !important;
+	}
+
+	/* Voice mode CTA (keep dictate button default) */
+	button[aria-label*='Voice mode'] {
+		background-color: var(--brand-color) !important;
+		color: var(--color-on-brand) !important;
+	}
+
+	button[aria-label*='Voice mode']:hover {
+		background-color: var(--brand-color-strong) !important;
+	color: var(--color-on-brand) !important;
+	}
+
+	button[aria-label='Voice mode'] svg {
+	stroke: var(--color-on-brand) !important;
+	color: var(--color-on-brand) !important;
+	}
+
+	/* Sidebar chat item menu */
+	#sidebar-chat-item-menu:not(.invisible) {
+		background: linear-gradient(90deg, var(--brand-bg-strong) 0%, transparent 80%) !important;
+	}
+
+	#sidebar-chat-item-menu.invisible {
+		background: transparent !important;
+	}
+
+	#sidebar-chat-item-menu:focus-within {
+		visibility: visible !important;
+		background: linear-gradient(90deg, var(--brand-bg-strong) 0%, transparent 80%) !important;
+	}
+
+	#sidebar-chat-item-menu button svg {
+		stroke: var(--brand-color) !important;
+		color: var(--brand-color) !important;
+	}
+
+	#sidebar-chat-item-menu button:hover svg {
+		stroke: var(--brand-color-strong) !important;
+		color: var(--brand-color-strong) !important;
+	}
+
+	#sidebar-chat-item-menu button:focus-visible svg {
+		stroke: var(--brand-color-strong) !important;
+		color: var(--brand-color-strong) !important;
 	}
 
 	/* Search input and textarea focus states */
 	input[type='text']:focus,
 	input[type='search']:focus,
 	textarea:focus {
-		border-color: #14775a !important;
-		outline-color: #14775a !important;
-		box-shadow: 0 0 0 1px #14775a !important;
+		border-color: var(--brand-color) !important;
+		outline-color: var(--brand-color) !important;
+		/* box-shadow: 0 0 0 1px var(--brand-color) !important; */
 	}
 
-	/* All SVG icons in the app (makes them green) */
+	/* All SVG icons in the app */
 	.text-gray-800 svg,
 	.dark\\:text-gray-200 svg {
-		stroke: #14775a !important;
-		color: #14775a !important;
+		stroke: var(--brand-color) !important;
+		color: var(--brand-color) !important;
+	}
+
+	/* Generic icon sizing classes pick up brand stroke */
+	svg.size-3,
+	svg.size-4,
+	svg.size-5 {
+		stroke: var(--brand-color) !important;
+		color: var(--brand-color) !important;
+	}
+
+	/* High-contrast fixes for brand text/icons on dark primary buttons */
+	a.bg-black,
+	button.bg-black,
+	.bg-black a,
+	.bg-black button {
+	color: var(--color-on-brand) !important;
+	}
+
+	a.bg-black svg,
+	button.bg-black svg,
+	.bg-black a svg,
+	.bg-black button svg {
+	stroke: var(--color-on-brand) !important;
+	color: var(--color-on-brand) !important;
+	}
+
+	a.bg-black .text-xs,
+	button.bg-black .text-xs,
+	.bg-black a .text-xs,
+	.bg-black button .text-xs {
+	color: var(--color-on-brand) !important;
 	}
 
 	/* Model selector and model name */
 	.font-primary,
 	.text-3xl {
-		color: #14775a !important;
+		color: var(--brand-color) !important;
 	}
 
 	/* Model dropdown button */
 	button[aria-label*='Model'] svg,
 	.dropdown-toggle svg {
-		stroke: #14775a !important;
+		stroke: var(--brand-color) !important;
 	}
 
 	/* Plus button in message input */
 	button[aria-label*='Add']:not([aria-label*='folder']),
 	button[aria-label*='Attach'] {
-		color: #14775a !important;
+		color: var(--brand-color) !important;
 	}
 
 	button[aria-label*='Add'] svg:not([aria-label*='folder']),
 	button[aria-label*='Attach'] svg {
-		stroke: #14775a !important;
+		stroke: var(--brand-color) !important;
 	}
 
 	/* Tools/dice button in message input */
 	button[aria-label*='Tools'],
 	button[aria-label*='tool'] {
-		color: #14775a !important;
+		color: var(--brand-color) !important;
 	}
 
 	button[aria-label*='Tools'] svg,
 	button[aria-label*='tool'] svg {
-		stroke: #14775a !important;
+		stroke: var(--brand-color) !important;
 	}
 
 	/* Suggested prompts */
 	.cursor-pointer {
-		color: #14775a !important;
+		color: var(--brand-color) !important;
 	}
 
 	.cursor-pointer:hover {
-		background-color: #f0f9f6 !important;
-		border-color: #14775a !important;
+		background-color: var(--brand-bg-strong) !important;
+		border-color: var(--brand-color) !important;
 	}
 
 	/* Suggested section header */
 	button:has(svg) {
-		color: #14775a !important;
+		color: var(--brand-color) !important;
 	}
 }
 
-/* Dark mode text colors for Hoppecke theme */
-[data-theme='hoppecke'].dark {
-	color: #d1e4df;
+/* Dark mode text colors for brand themes */
+[data-theme='hoppecke'].dark,
+[data-theme='intilion'].dark {
+	color: var(--brand-on-dark);
 
 	body {
-		color: #d1e4df !important;
+		color: var(--brand-on-dark) !important;
 	}
-	
-	p, span, div {
-		color: #d1e4df;
+
+	p,
+	span,
+	div {
+		color: var(--brand-on-dark);
 	}
-	
-	h1, h2, h3, h4, h5, h6 {
-		color: #f0f9f6 !important;
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: var(--brand-on-dark-heading) !important;
 	}
-	
+
 	.dark\\:text-gray-200,
 	.dark\\:text-gray-300,
 	.dark\\:text-white {
-		color: #d1e4df !important;
+		color: var(--brand-on-dark) !important;
 	}
-	
+
 	.dark\\:text-gray-400,
 	.dark\\:text-gray-500 {
-		color: #a1c9bd !important;
+		color: var(--brand-on-dark-muted) !important;
 	}
-	
+
 	.prose p,
 	.markdown-prose p,
 	.input-prose p {
-		color: #d1e4df !important;
+		color: var(--brand-on-dark) !important;
 	}
-	
-	code, pre {
-		color: #f0f9f6 !important;
+
+	code,
+	pre {
+		color: var(--brand-on-dark-heading) !important;
 	}
-	
-	label, small {
-		color: #a1c9bd !important;
+
+	label,
+	small {
+		color: var(--brand-on-dark-muted) !important;
 	}
+}
+
+/* Dark mode brand tints */
+:root[data-mode='dark'][data-theme='hoppecke'] {
+	--color-sidebar-accent: #1e3a2f;
+	--color-badge-bg: #2a4d3f;
+	--color-chat-user-bg: #1e3a2f;
+	--color-chat-area-bg: #121715;
+	--color-primary-lightest: #1e3a2f;
+	--color-primary-surface: #1e3a2f;
+	--color-primary-surface-hover: #2a4d3f;
+	--color-border-brand: #2a4d3f;
+	--color-border-brand-subtle: #2a4d3f;
+}
+
+:root[data-mode='dark'][data-theme='intilion'] {
+	--color-sidebar-accent: #3d2a1a;
+	--color-badge-bg: #4d3824;
+	--color-chat-user-bg: #3d2a1a;
+	--color-chat-area-bg: #171412;
+	--color-primary-lightest: #3d2a1a;
+	--color-primary-surface: #3d2a1a;
+	--color-primary-surface-hover: #4d3824;
+	--color-border-brand: #4d3824;
+	--color-border-brand-subtle: #4d3824;
+}
+
+/* Light mode brand-specific chat areas */
+:root[data-mode='light'][data-theme='hoppecke'] {
+	--color-chat-area-bg: #e7f1ed;
+}
+
+:root[data-mode='light'][data-theme='intilion'] {
+	--color-chat-area-bg: #fef5f0;
 }
 
 ::-webkit-scrollbar {

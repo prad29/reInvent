@@ -17,7 +17,7 @@
 	let updateInterval: ReturnType<typeof setInterval> | undefined;
 
 	// Format numbers
-	const formatNumber = (num: number): string => {
+	const formatNumber = (num: number = 0): string => {
 		if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
 		if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
 		return num.toString();
@@ -148,7 +148,7 @@
 								<div class="flex justify-between items-center mb-1.5">
 									<span class="text-xs text-gray-600 dark:text-gray-400">Total Tokens</span>
 									<span class="text-sm font-semibold font-mono">
-										{formatNumber($usageData.daily.tokens_total)}
+										{formatNumber($usageData?.daily?.tokens_total)}
 									</span>
 								</div>
 							</div>
@@ -160,14 +160,14 @@
 										<span class="text-base">🔽</span>
 										<span class="text-xs text-gray-600 dark:text-gray-400">Input</span>
 									</div>
-									<div class="text-lg font-semibold font-mono">{formatNumber($usageData.daily.tokens_input)}</div>
+									<div class="text-lg font-semibold font-mono">{formatNumber($usageData?.daily?.tokens_input)}</div>
 								</div>
 								<div class="bg-gray-50 dark:bg-gray-850 rounded-lg p-2.5">
 									<div class="flex items-center gap-1.5 mb-1">
 										<span class="text-base">🔼</span>
 										<span class="text-xs text-gray-600 dark:text-gray-400">Output</span>
 									</div>
-									<div class="text-lg font-semibold font-mono">{formatNumber($usageData.daily.tokens_output)}</div>
+									<div class="text-lg font-semibold font-mono">{formatNumber($usageData?.daily?.tokens_output)}</div>
 								</div>
 							</div>
 						</div>
@@ -303,12 +303,12 @@
 						<div class="flex items-center justify-between">
 							<div class="flex items-center gap-2">
 								<div
-									class="size-2 rounded-full {$usageData.daily.tokens_total > 0
+									class="size-2 rounded-full {$usageData?.daily?.tokens_total > 0
 										? 'bg-green-500'
 										: 'bg-gray-400'}"
 								/>
 								<span class="text-xs font-medium text-gray-700 dark:text-gray-300">
-									{$usageData.daily.tokens_total > 0 ? 'Active' : 'Ready'}
+									{$usageData?.daily?.tokens_total > 0 ? 'Active' : 'Ready'}
 								</span>
 							</div>
 							<span class="text-xs text-gray-500 dark:text-gray-500">Live Metrics</span>

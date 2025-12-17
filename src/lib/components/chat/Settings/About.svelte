@@ -133,7 +133,7 @@
 		<div>
 			<pre
 				class="text-xs text-gray-400 dark:text-gray-500">Copyright (c) {new Date().getFullYear()} <a
-					href="https://"
+					href="https://github.com/prad29/reInvent"
 					target="_blank"
 					class="underline">reInvent (Souveek Pradhan)</a
 				>
@@ -144,7 +144,7 @@
 			{$i18n.t('Created by')}
 			<a
 				class=" text-gray-500 dark:text-gray-300 font-medium"
-				href="https://github.com/tjbck"
+				href="https://github.com/prad29"
 				target="_blank">Souveek Pradhan</a
 			>
 		</div>

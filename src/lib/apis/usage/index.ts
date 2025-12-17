@@ -1,4 +1,4 @@
-import { WEBUI_API_BASE_URL } from '$lib/constants';
+import { WEBUI_API_BASE_URL, WEBUI_DEFAULT_API_BASE_URL } from '$lib/constants';
 
 export interface DailyUsageStats {
 	tokens_input: number;
@@ -60,7 +60,7 @@ export interface MonthlyHistoryResponse {
 export const getUsageStats = async (token: string): Promise<UsageStatsResponse | null> => {
 	let error = null;
 
-	const res = await fetch(`${WEBUI_API_BASE_URL}/usage/stats`, {
+	const res = await fetch(`${WEBUI_DEFAULT_API_BASE_URL}/usage`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export const resetDailyUsage = async (
 	targetDate?: string
 ): Promise<{ success: boolean; message: string; user_id: string; date: string } | null> => {
 	let error = null;
-
+	//not exists http://localhost:8080/docs#/default/get_current_usage_api_usage_get
 	const res = await fetch(`${WEBUI_API_BASE_URL}/usage/reset/daily`, {
 		method: 'POST',
 		headers: {

@@ -138,4 +138,64 @@ export HF_HUB_OFFLINE=1
 
 ---
 
-Created by Souveek Pradhan
+## Frontend Setup (User Interface)
+
+### 2. Frontend Setup
+
+#### Configure Environment Variables
+
+```bash
+cp -RPp .env.example .env
+```
+
+Open `.env` and customize values if needed.  
+Do not commit sensitive environment variables.
+
+#### Install Frontend Dependencies
+
+Navigate to the project root:
+
+```bash
+cd reInvent
+```
+
+Install all required packages:
+
+```bash
+npm install
+```
+
+If warnings/errors appear:
+
+```bash
+npm install --force
+```
+
+#### Start the Frontend Development Server
+
+```bash
+npm run dev
+```
+
+Visit the frontend at:
+
+http://localhost:5173
+
+Leave this terminal running.
+
+### 2.5 Build the Frontend (Recommended)
+
+```bash
+npm run build
+```
+
+This generates an optimized production-ready build inside the `build` directory.
+
+---
+
+## Authors
+
+| Author            | Date          | Action             |
+|-------------------|---------------|--------------------|
+| Souveek Pradhan   | Nov 5, 2025   | Creation           |
+| Hardik Prashar    | Dec 12, 2025  | First Modification |

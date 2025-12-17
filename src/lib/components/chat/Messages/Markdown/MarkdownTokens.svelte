@@ -367,6 +367,6 @@
 	{:else if token.type === 'space'}
 		<div class="my-2" />
 	{:else}
-		{console.log('Unknown token', token)}
+		{window.console.log('Unknown token', token)}
 	{/if}
 {/each}

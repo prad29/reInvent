@@ -58,6 +58,7 @@
 				if (localStorage.theme === 'system') {
 					document.documentElement.classList.add(prefersDarkTheme ? 'dark' : 'light');
 					metaThemeColorTag.setAttribute('content', prefersDarkTheme ? '#171717' : '#ffffff');
+					document.documentElement.setAttribute('data-mode', prefersDarkTheme ? 'dark' : 'light');
 				} else if (localStorage.theme === 'oled-dark') {
 					document.documentElement.style.setProperty('--color-gray-800', '#101010');
 					document.documentElement.style.setProperty('--color-gray-850', '#050505');
@@ -65,24 +66,37 @@
 					document.documentElement.style.setProperty('--color-gray-950', '#000000');
 					document.documentElement.classList.add('dark');
 					metaThemeColorTag.setAttribute('content', '#000000');
+					document.documentElement.setAttribute('data-mode', 'dark');
 				} else if (localStorage.theme === 'light') {
 					document.documentElement.classList.add('light');
 					metaThemeColorTag.setAttribute('content', '#ffffff');
+					document.documentElement.setAttribute('data-mode', 'light');
 				} else if (localStorage.theme === 'her') {
 					document.documentElement.classList.add('her');
 					metaThemeColorTag.setAttribute('content', '#983724');
-			} else if (localStorage.theme === 'hoppecke') {
-				document.documentElement.classList.add('light');
-				document.documentElement.setAttribute('data-theme', 'hoppecke');
-				metaThemeColorTag.setAttribute('content', '#d1e4df');
-				// Update favicon for Hoppecke theme
-				const favicon = document.querySelector('link[rel="icon"][type="image/png"]');
-				if (favicon) {
-					favicon.href = '/hoppecke-logo.png';
-				}
+					document.documentElement.setAttribute('data-mode', 'light');
+				} else if (localStorage.theme === 'hoppecke') {
+					document.documentElement.classList.add('light');
+					document.documentElement.setAttribute('data-theme', 'hoppecke');
+					metaThemeColorTag.setAttribute('content', '#d1e4df');
+					document.documentElement.setAttribute('data-mode', 'light');
+					const favicon = document.querySelector('link[rel="icon"][type="image/png"]');
+					if (favicon) {
+						favicon.href = '/hoppecke-logo.png';
+					}
+				} else if (localStorage.theme === 'intilion') {
+					document.documentElement.classList.add('light');
+					document.documentElement.setAttribute('data-theme', 'intilion');
+					document.documentElement.setAttribute('data-mode', 'light');
+					metaThemeColorTag.setAttribute('content', '#fbe1d3');
+					const favicon = document.querySelector('link[rel="icon"][type="image/png"]');
+					if (favicon) {
+						favicon.href = '/intilion-logo.png';
+					}
 				} else {
 					document.documentElement.classList.add('dark');
 					metaThemeColorTag.setAttribute('content', '#171717');
+					document.documentElement.setAttribute('data-mode', 'dark');
 				}
 
 				window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
@@ -91,10 +105,12 @@
 							document.documentElement.classList.add('dark');
 							document.documentElement.classList.remove('light');
 							metaThemeColorTag.setAttribute('content', '#171717');
+							document.documentElement.setAttribute('data-mode', 'dark');
 						} else {
 							document.documentElement.classList.add('light');
 							document.documentElement.classList.remove('dark');
 							metaThemeColorTag.setAttribute('content', '#ffffff');
+							document.documentElement.setAttribute('data-mode', 'light');
 						}
 					}
 				});
@@ -104,11 +120,15 @@
 				logo.id = 'logo';
 				logo.style =
 					'position: absolute; width: auto; height: 6rem; top: 44%; left: 50%; transform: translateX(-50%); display:block;';
-				const isHoppeckeTheme = document.documentElement.hasAttribute('data-theme') &&
-					document.documentElement.getAttribute('data-theme') === 'hoppecke';
-				logo.src = isHoppeckeTheme
-					? '/hoppecke-logo.png'
-					: (isDarkMode ? '/static/splash-dark.png' : '/static/splash.png');
+				const activeBrandTheme = document.documentElement.getAttribute('data-theme');
+				logo.src =
+					activeBrandTheme === 'hoppecke' 
+						? '/hoppecke-logo.png'
+						: activeBrandTheme === 'intilion'
+							? '/intilion-logo.png'
+							: isDarkMode
+								? '/static/splash-dark.png'
+								: '/static/splash.png';
 
 				document.addEventListener('DOMContentLoaded', function () {
 					const splash = document.getElementById('splash-screen');

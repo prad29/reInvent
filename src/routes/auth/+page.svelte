@@ -11,7 +11,7 @@
 	import { getBackendConfig } from '$lib/apis';
 	import { ldapUserSignIn, getSessionUser, userSignIn, userSignUp } from '$lib/apis/auths';
 
-	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL, WEBUI_STATIC_URL } from '$lib/constants';
+	import { WEBUI_API_BASE_URL, WEBUI_BASE_URL, WEBUI_STATIC_URL, IS_BRANDED_THEME} from '$lib/constants';
 	import { WEBUI_NAME, config, user, socket, theme } from '$lib/stores';
 
 	import { generateInitialsImage, canvasPixelTest } from '$lib/utils';
@@ -36,9 +36,8 @@
 
 	let ldapUsername = '';
 
-	$: logoSrc = $theme === 'hoppecke'
-		? `${WEBUI_STATIC_URL}/hoppecke-logo.png`
-		: `${WEBUI_STATIC_URL}/static/favicon.png`;
+	$: logoSrc = IS_BRANDED_THEME($theme) ? `${WEBUI_STATIC_URL}/${$theme}-logo.png`
+				: `${WEBUI_STATIC_URL}/static/favicon.png`;
 
 	const setSessionUser = async (sessionUser, redirectPath: string | null = null) => {
 		if (sessionUser) {

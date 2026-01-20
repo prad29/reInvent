@@ -118,6 +118,76 @@
             "input_tokens": 26,
             "output_tokens": 76,
             "total_cost": "0.00019099999999999998"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-17T10:10:05",
+            "input_tokens": 10,
+            "output_tokens": 100,
+            "total_cost": "0.000215"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-17T10:10:16",
+            "input_tokens": 34,
+            "output_tokens": 262,
+            "total_cost": "0.000575"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-17T10:10:30",
+            "input_tokens": 26,
+            "output_tokens": 70,
+            "total_cost": "0.000179"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-17T10:10:36",
+            "input_tokens": 52,
+            "output_tokens": 138,
+            "total_cost": "0.000354"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-17T10:10:44",
+            "input_tokens": 26,
+            "output_tokens": 62,
+            "total_cost": "0.000163"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-17T10:11:05",
+            "input_tokens": 17,
+            "output_tokens": 372,
+            "total_cost": "0.0007695"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-18T14:05:44",
+            "input_tokens": 32,
+            "output_tokens": 247,
+            "total_cost": "0.000542"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-18T14:06:16",
+            "input_tokens": 32,
+            "output_tokens": 273,
+            "total_cost": "0.0005939999999999999"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-18T14:23:59",
+            "input_tokens": 8,
+            "output_tokens": 305,
+            "total_cost": "0.0006219999999999999"
+        },
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2025-12-18T14:25:19",
+            "input_tokens": 32,
+            "output_tokens": 253,
+            "total_cost": "0.0005539999999999999"
         }
     ]
 }

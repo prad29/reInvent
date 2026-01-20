@@ -12,12 +12,40 @@
         "tokens_output": 296,
         "tokens_total": 1995,
         "cost": 0.009537
+      },
+      "2025-12-17": {
+        "tokens_input": 6351,
+        "tokens_output": 822,
+        "tokens_total": 7173,
+        "cost": 0.031383
+      },
+      "2025-12-18": {
+        "tokens_input": 11076,
+        "tokens_output": 1127,
+        "tokens_total": 12203,
+        "cost": 0.050133
+      },
+      "2026-01-06": {
+        "tokens_input": 8027,
+        "tokens_output": 1043,
+        "tokens_total": 9070,
+        "cost": 0.039726
+      },
+      "2026-01-14": {
+        "tokens_input": 2076,
+        "tokens_output": 212,
+        "tokens_total": 2288,
+        "cost": 0.009408
       }
     },
     "monthly": {
       "2025-12": {
-        "tokens_total": 15848,
-        "cost": 0.06637200000000001
+        "tokens_total": 35224,
+        "cost": 0.14788800000000002
+      },
+      "2026-01": {
+        "tokens_total": 11358,
+        "cost": 0.049134000000000004
       }
     },
     "sessions": {
@@ -76,6 +104,118 @@
         "cost": 0.009537,
         "started_at": "2025-12-11T13:30:18.496971",
         "last_updated": "2025-12-11T13:30:22.133702"
+      },
+      "146d98ba-3e67-4138-b1cc-a70168dc5ac6": {
+        "tokens_input": 1704,
+        "tokens_output": 297,
+        "tokens_total": 2001,
+        "cost": 0.009566999999999999,
+        "started_at": "2025-12-17T10:10:11.474027",
+        "last_updated": "2025-12-17T10:10:22.967227"
+      },
+      "21b98c8e-301f-42be-880e-05c4d026f435": {
+        "tokens_input": 1546,
+        "tokens_output": 223,
+        "tokens_total": 1769,
+        "cost": 0.007983,
+        "started_at": "2025-12-17T10:10:36.111382",
+        "last_updated": "2025-12-17T10:10:45.174699"
+      },
+      "9ed6efbb-5856-4167-9408-1c01c8b9486b": {
+        "tokens_input": 1069,
+        "tokens_output": 132,
+        "tokens_total": 1201,
+        "cost": 0.005187,
+        "started_at": "2025-12-17T10:10:50.163667",
+        "last_updated": "2025-12-17T10:10:58.854451"
+      },
+      "cba3a586-2f15-459f-8cec-632a0c30f128": {
+        "tokens_input": 2032,
+        "tokens_output": 170,
+        "tokens_total": 2202,
+        "cost": 0.008646000000000001,
+        "started_at": "2025-12-17T10:11:11.721774",
+        "last_updated": "2025-12-17T10:11:19.866507"
+      },
+      "be64babe-6c82-49d0-a551-39a617cfa734": {
+        "tokens_input": 2529,
+        "tokens_output": 139,
+        "tokens_total": 2668,
+        "cost": 0.009672,
+        "started_at": "2025-12-18T14:01:18.708968",
+        "last_updated": "2025-12-18T14:01:21.517872"
+      },
+      "25112c9b-00ec-486a-87a8-0a2a17f269c2": {
+        "tokens_input": 1681,
+        "tokens_output": 205,
+        "tokens_total": 1886,
+        "cost": 0.008118,
+        "started_at": "2025-12-18T14:05:51.298001",
+        "last_updated": "2025-12-18T14:05:59.754040"
+      },
+      "a46ef480-63c5-4a0d-955a-daf6e03946cd": {
+        "tokens_input": 2973,
+        "tokens_output": 362,
+        "tokens_total": 3335,
+        "cost": 0.014349,
+        "started_at": "2025-12-18T14:06:28.533446",
+        "last_updated": "2025-12-18T14:07:09.542740"
+      },
+      "01b4a04c-4592-4635-b22c-c6dc2cd84626": {
+        "tokens_input": 2182,
+        "tokens_output": 244,
+        "tokens_total": 2426,
+        "cost": 0.010206,
+        "started_at": "2025-12-18T14:23:49.191156",
+        "last_updated": "2025-12-18T14:24:14.778368"
+      },
+      "00cd2fe6-08f1-402f-a230-35ab12eda113": {
+        "tokens_input": 1711,
+        "tokens_output": 177,
+        "tokens_total": 1888,
+        "cost": 0.007788,
+        "started_at": "2025-12-18T14:25:26.959827",
+        "last_updated": "2025-12-18T14:25:35.997698"
+      },
+      "b3a4f344-98a1-4671-a50b-03535ce2b8a0": {
+        "tokens_input": 2422,
+        "tokens_output": 158,
+        "tokens_total": 2580,
+        "cost": 0.009636,
+        "started_at": "2026-01-06T14:48:14.941479",
+        "last_updated": "2026-01-06T14:48:18.086272"
+      },
+      "87a3f93e-09e1-4822-a02d-f4d1267afcf8": {
+        "tokens_input": 1328,
+        "tokens_output": 234,
+        "tokens_total": 1562,
+        "cost": 0.007494,
+        "started_at": "2026-01-06T14:48:59.078718",
+        "last_updated": "2026-01-06T14:49:07.891275"
+      },
+      "5f189c6f-441e-4f20-bafa-873ec79193a6": {
+        "tokens_input": 1190,
+        "tokens_output": 238,
+        "tokens_total": 1428,
+        "cost": 0.0071400000000000005,
+        "started_at": "2026-01-06T15:44:17.350756",
+        "last_updated": "2026-01-06T15:44:24.169233"
+      },
+      "0c75241c-60eb-4a39-9873-e0721c7a7ebc": {
+        "tokens_input": 3087,
+        "tokens_output": 413,
+        "tokens_total": 3500,
+        "cost": 0.015456,
+        "started_at": "2026-01-06T15:49:20.008188",
+        "last_updated": "2026-01-06T15:49:30.490205"
+      },
+      "86855097-4582-4457-9e6d-51b82f6c7e7b": {
+        "tokens_input": 2076,
+        "tokens_output": 212,
+        "tokens_total": 2288,
+        "cost": 0.009408,
+        "started_at": "2026-01-14T14:02:51.060420",
+        "last_updated": "2026-01-14T14:03:13.893150"
       }
     },
     "history": [
@@ -286,6 +426,406 @@
         "output_tokens": 88,
         "cost": 0.002373,
         "session_id": "ab54fc63-e1cb-46a2-8445-00a549c11f24"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:11.474027",
+        "input_tokens": 361,
+        "output_tokens": 106,
+        "cost": 0.002673,
+        "session_id": "146d98ba-3e67-4138-b1cc-a70168dc5ac6"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:17.267061",
+        "input_tokens": 455,
+        "output_tokens": 26,
+        "cost": 0.0017549999999999998,
+        "session_id": "146d98ba-3e67-4138-b1cc-a70168dc5ac6"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:22.018753",
+        "input_tokens": 316,
+        "output_tokens": 27,
+        "cost": 0.001353,
+        "session_id": "146d98ba-3e67-4138-b1cc-a70168dc5ac6"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:22.967227",
+        "input_tokens": 572,
+        "output_tokens": 138,
+        "cost": 0.003786,
+        "session_id": "146d98ba-3e67-4138-b1cc-a70168dc5ac6"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:36.111382",
+        "input_tokens": 346,
+        "output_tokens": 93,
+        "cost": 0.0024330000000000003,
+        "session_id": "21b98c8e-301f-42be-880e-05c4d026f435"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:40.224228",
+        "input_tokens": 440,
+        "output_tokens": 17,
+        "cost": 0.001575,
+        "session_id": "21b98c8e-301f-42be-880e-05c4d026f435"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:41.934943",
+        "input_tokens": 459,
+        "output_tokens": 85,
+        "cost": 0.002652,
+        "session_id": "21b98c8e-301f-42be-880e-05c4d026f435"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:45.174699",
+        "input_tokens": 301,
+        "output_tokens": 28,
+        "cost": 0.001323,
+        "session_id": "21b98c8e-301f-42be-880e-05c4d026f435"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:50.163667",
+        "input_tokens": 340,
+        "output_tokens": 84,
+        "cost": 0.00228,
+        "session_id": "9ed6efbb-5856-4167-9408-1c01c8b9486b"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:53.973846",
+        "input_tokens": 434,
+        "output_tokens": 21,
+        "cost": 0.001617,
+        "session_id": "9ed6efbb-5856-4167-9408-1c01c8b9486b"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:10:58.854451",
+        "input_tokens": 295,
+        "output_tokens": 27,
+        "cost": 0.00129,
+        "session_id": "9ed6efbb-5856-4167-9408-1c01c8b9486b"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:11:11.721774",
+        "input_tokens": 661,
+        "output_tokens": 117,
+        "cost": 0.003738,
+        "session_id": "cba3a586-2f15-459f-8cec-632a0c30f128"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:11:15.840022",
+        "input_tokens": 755,
+        "output_tokens": 19,
+        "cost": 0.00255,
+        "session_id": "cba3a586-2f15-459f-8cec-632a0c30f128"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-17T10:11:19.866507",
+        "input_tokens": 616,
+        "output_tokens": 34,
+        "cost": 0.002358,
+        "session_id": "cba3a586-2f15-459f-8cec-632a0c30f128"
+      },
+      {
+        "model": "us.amazon.nova-micro-v1:0",
+        "timestamp": "2025-12-18T14:01:18.708968",
+        "input_tokens": 833,
+        "output_tokens": 98,
+        "cost": 0.003969,
+        "session_id": "be64babe-6c82-49d0-a551-39a617cfa734"
+      },
+      {
+        "model": "us.amazon.nova-micro-v1:0",
+        "timestamp": "2025-12-18T14:01:19.303500",
+        "input_tokens": 902,
+        "output_tokens": 17,
+        "cost": 0.002961,
+        "session_id": "be64babe-6c82-49d0-a551-39a617cfa734"
+      },
+      {
+        "model": "us.amazon.nova-micro-v1:0",
+        "timestamp": "2025-12-18T14:01:21.517872",
+        "input_tokens": 794,
+        "output_tokens": 24,
+        "cost": 0.002742,
+        "session_id": "be64babe-6c82-49d0-a551-39a617cfa734"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:05:51.298001",
+        "input_tokens": 544,
+        "output_tokens": 132,
+        "cost": 0.0036119999999999998,
+        "session_id": "25112c9b-00ec-486a-87a8-0a2a17f269c2"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:05:55.843847",
+        "input_tokens": 638,
+        "output_tokens": 18,
+        "cost": 0.0021839999999999997,
+        "session_id": "25112c9b-00ec-486a-87a8-0a2a17f269c2"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:05:59.754040",
+        "input_tokens": 499,
+        "output_tokens": 55,
+        "cost": 0.0023220000000000003,
+        "session_id": "25112c9b-00ec-486a-87a8-0a2a17f269c2"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:06:28.533446",
+        "input_tokens": 577,
+        "output_tokens": 125,
+        "cost": 0.003606,
+        "session_id": "a46ef480-63c5-4a0d-955a-daf6e03946cd"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:06:35.112590",
+        "input_tokens": 671,
+        "output_tokens": 18,
+        "cost": 0.002283,
+        "session_id": "a46ef480-63c5-4a0d-955a-daf6e03946cd"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:06:44.280675",
+        "input_tokens": 532,
+        "output_tokens": 51,
+        "cost": 0.0023610000000000003,
+        "session_id": "a46ef480-63c5-4a0d-955a-daf6e03946cd"
+      },
+      {
+        "model": "mistral.mistral-7b-instruct-v0:2",
+        "timestamp": "2025-12-18T14:07:08.897847",
+        "input_tokens": 612,
+        "output_tokens": 69,
+        "cost": 0.002871,
+        "session_id": "a46ef480-63c5-4a0d-955a-daf6e03946cd"
+      },
+      {
+        "model": "us.amazon.nova-pro-v1:0",
+        "timestamp": "2025-12-18T14:07:09.542740",
+        "input_tokens": 581,
+        "output_tokens": 99,
+        "cost": 0.003228,
+        "session_id": "a46ef480-63c5-4a0d-955a-daf6e03946cd"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:23:49.191156",
+        "input_tokens": 336,
+        "output_tokens": 60,
+        "cost": 0.001908,
+        "session_id": "01b4a04c-4592-4635-b22c-c6dc2cd84626"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:24:05.776598",
+        "input_tokens": 599,
+        "output_tokens": 115,
+        "cost": 0.003522,
+        "session_id": "01b4a04c-4592-4635-b22c-c6dc2cd84626"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:24:10.180254",
+        "input_tokens": 693,
+        "output_tokens": 17,
+        "cost": 0.002334,
+        "session_id": "01b4a04c-4592-4635-b22c-c6dc2cd84626"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:24:14.778368",
+        "input_tokens": 554,
+        "output_tokens": 52,
+        "cost": 0.002442,
+        "session_id": "01b4a04c-4592-4635-b22c-c6dc2cd84626"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:25:26.959827",
+        "input_tokens": 554,
+        "output_tokens": 118,
+        "cost": 0.003432,
+        "session_id": "00cd2fe6-08f1-402f-a230-35ab12eda113"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:25:31.495342",
+        "input_tokens": 648,
+        "output_tokens": 18,
+        "cost": 0.002214,
+        "session_id": "00cd2fe6-08f1-402f-a230-35ab12eda113"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2025-12-18T14:25:35.997698",
+        "input_tokens": 509,
+        "output_tokens": 41,
+        "cost": 0.0021420000000000002,
+        "session_id": "00cd2fe6-08f1-402f-a230-35ab12eda113"
+      },
+      {
+        "model": "mistral.mistral-7b-instruct-v0:2",
+        "timestamp": "2026-01-06T14:48:14.941479",
+        "input_tokens": 790,
+        "output_tokens": 86,
+        "cost": 0.00366,
+        "session_id": "b3a4f344-98a1-4671-a50b-03535ce2b8a0"
+      },
+      {
+        "model": "mistral.mistral-7b-instruct-v0:2",
+        "timestamp": "2026-01-06T14:48:17.086248",
+        "input_tokens": 888,
+        "output_tokens": 18,
+        "cost": 0.002934,
+        "session_id": "b3a4f344-98a1-4671-a50b-03535ce2b8a0"
+      },
+      {
+        "model": "mistral.mistral-7b-instruct-v0:2",
+        "timestamp": "2026-01-06T14:48:18.086272",
+        "input_tokens": 744,
+        "output_tokens": 54,
+        "cost": 0.003042,
+        "session_id": "b3a4f344-98a1-4671-a50b-03535ce2b8a0"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T14:48:59.078718",
+        "input_tokens": 432,
+        "output_tokens": 86,
+        "cost": 0.0025859999999999998,
+        "session_id": "87a3f93e-09e1-4822-a02d-f4d1267afcf8"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T14:49:02.120104",
+        "input_tokens": 506,
+        "output_tokens": 16,
+        "cost": 0.0017580000000000002,
+        "session_id": "87a3f93e-09e1-4822-a02d-f4d1267afcf8"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T14:49:07.891275",
+        "input_tokens": 390,
+        "output_tokens": 132,
+        "cost": 0.00315,
+        "session_id": "87a3f93e-09e1-4822-a02d-f4d1267afcf8"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T15:44:17.350756",
+        "input_tokens": 386,
+        "output_tokens": 108,
+        "cost": 0.002778,
+        "session_id": "5f189c6f-441e-4f20-bafa-873ec79193a6"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T15:44:19.973891",
+        "input_tokens": 460,
+        "output_tokens": 13,
+        "cost": 0.0015750000000000002,
+        "session_id": "5f189c6f-441e-4f20-bafa-873ec79193a6"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T15:44:24.169233",
+        "input_tokens": 344,
+        "output_tokens": 117,
+        "cost": 0.002787,
+        "session_id": "5f189c6f-441e-4f20-bafa-873ec79193a6"
+      },
+      {
+        "model": "mistral.mistral-7b-instruct-v0:2",
+        "timestamp": "2026-01-06T15:49:20.008188",
+        "input_tokens": 587,
+        "output_tokens": 65,
+        "cost": 0.0027359999999999997,
+        "session_id": "0c75241c-60eb-4a39-9873-e0721c7a7ebc"
+      },
+      {
+        "model": "us.amazon.nova-pro-v1:0",
+        "timestamp": "2026-01-06T15:49:20.528230",
+        "input_tokens": 662,
+        "output_tokens": 94,
+        "cost": 0.0033959999999999997,
+        "session_id": "0c75241c-60eb-4a39-9873-e0721c7a7ebc"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T15:49:21.059279",
+        "input_tokens": 602,
+        "output_tokens": 105,
+        "cost": 0.003381,
+        "session_id": "0c75241c-60eb-4a39-9873-e0721c7a7ebc"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T15:49:24.823965",
+        "input_tokens": 676,
+        "output_tokens": 14,
+        "cost": 0.002238,
+        "session_id": "0c75241c-60eb-4a39-9873-e0721c7a7ebc"
+      },
+      {
+        "model": "us.amazon.nova-premier-v1:0",
+        "timestamp": "2026-01-06T15:49:30.490205",
+        "input_tokens": 560,
+        "output_tokens": 135,
+        "cost": 0.003705,
+        "session_id": "0c75241c-60eb-4a39-9873-e0721c7a7ebc"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2026-01-14T14:02:51.060420",
+        "input_tokens": 335,
+        "output_tokens": 52,
+        "cost": 0.0017850000000000001,
+        "session_id": "86855097-4582-4457-9e6d-51b82f6c7e7b"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2026-01-14T14:03:05.784798",
+        "input_tokens": 564,
+        "output_tokens": 106,
+        "cost": 0.003282,
+        "session_id": "86855097-4582-4457-9e6d-51b82f6c7e7b"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2026-01-14T14:03:09.182273",
+        "input_tokens": 658,
+        "output_tokens": 18,
+        "cost": 0.002244,
+        "session_id": "86855097-4582-4457-9e6d-51b82f6c7e7b"
+      },
+      {
+        "model": "claude-sonnet-4-5",
+        "timestamp": "2026-01-14T14:03:13.893150",
+        "input_tokens": 519,
+        "output_tokens": 36,
+        "cost": 0.0020970000000000003,
+        "session_id": "86855097-4582-4457-9e6d-51b82f6c7e7b"
       }
     ]
   }

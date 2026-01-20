@@ -1,0 +1,11 @@
+{
+    "souveek29@gmail.com": [
+        {
+            "model": "claude-sonnet-4-5",
+            "timestamp": "2026-01-14T14:03:01",
+            "input_tokens": 7,
+            "output_tokens": 281,
+            "total_cost": "0.0005725"
+        }
+    ]
+}
